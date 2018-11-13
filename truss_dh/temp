@@ -1,0 +1,49 @@
+
+db.CS207.bulkWrite(
+[
+ { insertOne:
+  {
+    "document":
+      { "ROLL_NO":"B15033",
+        "Name": "John",
+        "Age" : 23,
+        "Semester":5,
+        "gpa": {
+               "CGPA":7.9,"SGPA":7.95,"uom":"GRADE POINT"},
+        "Hometown":"Kanpur"
+      }
+  }
+ },
+ { insertOne:
+  {
+    "document":
+      { "ROLL_NO":"B15053",
+        "Name": "Harry",
+        "Age" : 29,
+        "Semester":8,
+        "gpa": {
+               "CGPA":9.9,"SGPA":9.95,"uom":"GRADE POINT"},
+        "Hometown":"Lucknow"
+      }
+  }
+ },
+ { updateOne:
+ 	{
+ 	"filter": {"ROLL_NO":"B15053"},
+ 	"update": { $set : {"Hometown":"Delhi"} }
+ 	}
+ }
+ ]
+ );
+
+db.CS207.bulkWrite(
+[
+	{ updateMany:
+		{
+			"filter" :{},
+			"update": {$set:{"Country":"India"}}
+		}
+
+	}
+]
+);
